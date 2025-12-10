@@ -1,4 +1,4 @@
-import { products } from "../data/product";
+import { products } from "../data/product.js";
 
 export function createProduct(title,price,description,category){
     return{

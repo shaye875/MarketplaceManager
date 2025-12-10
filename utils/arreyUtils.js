@@ -15,9 +15,10 @@ export function addProduct(product) {
 export function removeProduct() {
     const id = readLineSync.question("which id you wont del: ")
     for (let p of products) {
-        if (Number(p.id) === Number(id))
+        if (Number(p.id) === Number(id)){
             products.splice(products.indexOf(p), 1)
         return true
+        }
     }
     return false
 }
@@ -26,7 +27,7 @@ export function editPrice() {
     const id = readLineSync.question("whice id you want edit: ")
     const price = readLineSync.question("which price: ")
     const found = products.find((p) => Number(p.id) === Number(id))
-    found.price = price
+    found.price = Number(price)
 }
 
 export function showByPriceOrder() {
@@ -34,7 +35,11 @@ export function showByPriceOrder() {
     let pricres = products.map((p) => {
         return p.price
     })
+
+    
     sortList(pricres)
+
+    
     for (let i = 0; i < pricres.length; i++) {
         for (let j = 0; j < pricres.length; j++) {
             if (Number(pricres[i]) === Number(products[j].price)) {
@@ -57,4 +62,14 @@ export function showProductDetails() {
 
         }
     }
+}
+
+export function showByCategory(){
+      const category = readLineSync.question("which category: ")
+      const listCategory = products.filter((p)=>{
+        if (p.category.toLowerCase() == category.toLowerCase()){
+            return p
+        }
+      })
+      console.table(listCategory)
 }
