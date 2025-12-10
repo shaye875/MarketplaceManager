@@ -45,5 +45,5 @@ export function showByPriceOrder(){
 }
     console.table(productSort)
 }
-showByPriceOrder()
+
 
