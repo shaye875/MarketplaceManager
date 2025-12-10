@@ -1,8 +1,8 @@
-import { product } from "../data/product";
+import { products } from "../data/product";
 
 export function createProduct(title,price,description,category){
     return{
-        id:product.length+1,
+        id:products.length+1,
         title:title,
         price:price,
         description:description,
